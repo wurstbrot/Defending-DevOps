@@ -145,7 +145,7 @@ kubectl replace -f link-unshorten-deployment.yaml
  
  Inspect all six pods at once:
  ```
- kubectl get pods | tail -6 | awk '{print $1}' | xargs kubectl describe pod
+ kubectl get pods | tail -6 | grep -v NAME | awk '{print $1}' | xargs kubectl describe pod
  ```
 
 9. Un-comment the redis container lines in the link-unshorten-deployment.yaml manifest to deploy a second container within our Pod. Use `kubectl replace -f link-unshorten-deployment.yaml` to commit the changes after the lines have been un-commented.
